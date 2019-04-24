@@ -1,10 +1,9 @@
+var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 var d = new Date();
-var zenith = d.getHours();
+var n = d.getMonth();
+console.log(months[n]);
 
-if (zenith >= 0 && zenith <= 12) {
-  console.log('a.m.')
-} else {
-  console.log('p.m.');
-}
 
-console.log(zenith);
+var stateObj = {date: `${months[n]}`};
+
+console.log(stateObj.date);

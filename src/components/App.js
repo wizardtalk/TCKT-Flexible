@@ -32,7 +32,9 @@ injectGlobal`
 let savedObject = '';
 
 
-
+var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+var d = new Date();
+var n = d.getMonth();
 
 class App extends React.Component {
 
@@ -57,7 +59,7 @@ class App extends React.Component {
   ticketType: '',
   dayShortFormat: '', // FORMAT 'Mon', 'Tue', 'Wed', Thu', 'Fri', 'Sat', 'Sun'
   dayDate: '',
-  monthShortFormat: ''
+  monthShortFormat: `${months[n]}`
  }
 
   componentDidMount = () => {
@@ -83,7 +85,7 @@ if (noon >= 0 && noon <= 12) {
     this.setState({
       dayShortFormat: days[nDay],
       dayDate: nDate,
-      monthShortFormat: months[nMonth],
+      // monthShortFormat: months[nMonth],
       amPm: zenith     
     })
   }
