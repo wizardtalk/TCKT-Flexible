@@ -59,7 +59,8 @@ class App extends React.Component {
   ticketType: '',
   dayShortFormat: '', // FORMAT 'Mon', 'Tue', 'Wed', Thu', 'Fri', 'Sat', 'Sun'
   dayDate: '',
-  monthShortFormat: `${months[n]}`
+  monthShortFormat: `${months[n]}`,
+  passenger: ''
  }
 
   componentDidMount = () => {
@@ -143,7 +144,8 @@ stateSetter = (event) => {
       ticketType: backToJson.ticketType,
       dayShortFormat: backToJson.dayShortFormat, // FORMAT 'Mon', 'Tue', 'Wed', Thu', 'Fri', 'Sat', 'Sun'
       dayDate: backToJson.dayDate,
-      monthShortFormat: backToJson.monthShortFormat
+      monthShortFormat: backToJson.monthShortFormat,
+      passenger: backToJson.passenger
     });
   }
  
@@ -177,6 +179,9 @@ color3 = (event) => { this.setState({ color3: event.target.value }) }
  amPm = (event) => { this.setState({ amPm: event.target.value }) }
 
  ticketIdNo = (event) => { this.setState({ ticketIdNo: event.target.value }) }
+
+ passenger = (event) => { this.setState({ passenger: event.target.value }) }
+
 
  startTime = (event) => { 
   let hour = event.target.value.split('')[0] + event.target.value.split('')[1];
@@ -519,6 +524,9 @@ saySth = () => {
           <input type="text" style={{width: '300px', height: '50px', fontSize: '20px', backgroundColor: '#EEBCBA'}} onBlur={this.ticketType.bind(this)} placeholder="ticketType (eg. 'Anytime Single')"/>
         </div>
         <div>
+          <input type="text" style={{width: '300px', height: '50px', fontSize: '20px', backgroundColor: '#EEBCBA'}} onBlur={this.passenger.bind(this)} placeholder="passenger (your name here - or not...)"/>
+        </div>
+        <div>
           <input type="text" value={savedObject} style={{width: '300px', height: '50px', fontSize: '20px', backgroundColor: '#adf4b2'}}/>
         </div>
 
@@ -681,7 +689,7 @@ saySth = () => {
 
         <div class="t-n" style={{gridColumn: '2', gridRow: '2', color: '#373737'}}>{this.state.ticketIdNo}</div>
         <div class="p-i" style={{gridColumn: '2', gridRow: '3', color: '#373737'}}>ANY0000</div>
-        <div class="p-n" style={{gridColumn: '2', gridRow: '4', color: '#373737'}}>DAVID MATTHEWS</div>
+        <div class="p-n" style={{gridColumn: '2', gridRow: '4', color: '#373737'}}>{this.state.passenger}</div>
         <div class="p-o" style={{gridColumn: '2', gridRow: '5', color: '#373737'}}>{this.state.dayShortFormat} {this.state.dayDate} {this.state.monthShortFormat} {(new Date()).getFullYear()} {this.state.timePurchased}</div>
         <div class="act" style={{gridColumn: '2', gridRow: '6', color: '#373737'}}>{this.state.dayShortFormat} {this.state.dayDate} {this.state.monthShortFormat} {(new Date()).getFullYear()}</div>
 
